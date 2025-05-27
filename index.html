@@ -205,15 +205,10 @@
             
             <p class="message">Launch: 06/03/2025</p>
             
-            <form id="password-form" onsubmit="return checkPassword(event)">
-                <div class="form-group">
-                    <label for="password" class="password-label">Access password</label>
-                    <input type="password" id="password" class="password-input" placeholder="Enter password to access" required>
-                    <p id="error-message" class="error-message">Incorrect password. Please try again.</p>
-                </div>
-                
-                <button type="submit" class="access-btn">ACCESS</button>
-            </form>
+            <!-- Botão direto para a loja -->
+            <a href="https://mauroandriole.lojavirtualnuvem.com.br" class="access-btn" style="display: block; text-decoration: none; text-align: center; margin-bottom: 20px;">
+                ACCESS STORE DIRECTLY
+            </a>
             
             <p class="contact-info">
                 For early information, contact us at<br>
@@ -235,26 +230,6 @@
             &copy; 2025 MAURO ANDRIOLE DIGITAL GALLERY - All rights reserved
         </footer>
     </div>
-
-    <script>
-        function checkPassword(event ) {
-            event.preventDefault();
-            
-            const password = document.getElementById('password').value;
-            const correctPassword = "23052023";
-            const errorMessage = document.getElementById('error-message');
-            
-            if (password === correctPassword) {
-                // Redirect to the Nuvemshop store
-                window.location.href = "https://mauroandriole.lojavirtualnuvem.com.br";
-                return true;
-            } else {
-                // Show error message
-                errorMessage.style.display = 'block';
-                return false;
-            }
-        }
-    </script>
 </body>
 </html>
 
