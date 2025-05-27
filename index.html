@@ -22,7 +22,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            background-image: url('images-physis-bg.png');
+            background-image: url('images-physis-bg.png' );
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -75,7 +75,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 1px;
-            background-color: #fff;  /* Corrigido: traço em branco */
+            background-color: #fff;
         }
         
         .subtitle {
@@ -159,7 +159,7 @@
         }
         
         .contact-email {
-            color: #fff;  /* Corrigido: email em branco */
+            color: #fff;
             text-decoration: none;
         }
         
@@ -177,6 +177,13 @@
             margin-top: 2rem;
             font-size: 0.8rem;
             color: #fff;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
         }
     </style>
 </head>
@@ -198,10 +205,11 @@
             
             <p class="message">Launch: 06/03/2025</p>
             
-            <form>
+            <form id="password-form" onsubmit="return checkPassword(event)">
                 <div class="form-group">
                     <label for="password" class="password-label">Access password</label>
-                    <input type="password" id="password" class="password-input" placeholder="Enter password to access">
+                    <input type="password" id="password" class="password-input" placeholder="Enter password to access" required>
+                    <p id="error-message" class="error-message">Incorrect password. Please try again.</p>
                 </div>
                 
                 <button type="submit" class="access-btn">ACCESS</button>
@@ -227,6 +235,26 @@
             &copy; 2025 MAURO ANDRIOLE DIGITAL GALLERY - All rights reserved
         </footer>
     </div>
+
+    <script>
+        function checkPassword(event ) {
+            event.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const correctPassword = "23052023";
+            const errorMessage = document.getElementById('error-message');
+            
+            if (password === correctPassword) {
+                // Redirect to the Nuvemshop store
+                window.location.href = "https://mauroandriole.lojavirtualnuvem.com.br";
+                return true;
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
 
